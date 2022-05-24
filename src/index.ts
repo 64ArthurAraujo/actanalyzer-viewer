@@ -5,7 +5,7 @@ const server: Express = express()
 const port = 8081
 
 server.get('/', (request: Request, response: Response) => {
-    response.send("Hello World!")
+    response.sendFile(__dirname + "/pages/index.html");
 })
 
-server.listen(port, () => console.log(`Running on port ${port}`))
+server.listen(port, () => console.log(`Running on http://localhost:${port}/`))
