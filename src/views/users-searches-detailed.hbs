@@ -11,6 +11,13 @@
         <p>{{user.id}}</p>
         <p>{{user.username}}</p>
         <p>{{totalSearches}}</p>
+        {{#each categorisedSearches}}
+            <div>
+                <p>{{this.id}}</p>
+                <p>{{this.categoryName}}</p>
+                <p>{{this.timesSearched}}</p>
+            </div>
+        {{/each}}
     </div>
 </body>
 </html>
