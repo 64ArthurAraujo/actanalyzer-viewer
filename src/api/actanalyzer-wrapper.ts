@@ -12,6 +12,11 @@ export async function getTotalUserSearches(id: string) {
     return data
 }
 
+export async function getCategorisedUserSearches(id: string) {
+    const { data } = await client.get(`/retrieve/users/${id}/searches/categorised`)
+    return data
+}
+
 export async function getUser(id: string) {
     const { data } = await client.get(`/retrieve/users/${id}`)
     return data
