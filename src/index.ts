@@ -35,7 +35,8 @@ server.get('/users/searches/detailed', async (request: Request, response: Respon
     response.render('users-searches-detailed.hbs', { 
         translation: getTranslationsFor(browserLanguage),
         user: await getUser(userId),
-        totalSearches: await getTotalUserSearches(userId)
+        totalSearches: await getTotalUserSearches(userId),
+        categorisedSearches: []
     })
 })
 
