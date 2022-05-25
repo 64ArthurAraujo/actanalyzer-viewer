@@ -11,3 +11,9 @@ export async function getTotalUserSearches(id: string) {
     const { data } = await client.get(`/retrieve/users/${id}/searches/total`)
     return data
 }
+
+export async function getUser(id: string) {
+    const { data } = await client.get(`/retrieve/users/${id}`)
+    return data
+}
+
