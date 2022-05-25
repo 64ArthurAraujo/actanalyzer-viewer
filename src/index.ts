@@ -2,7 +2,11 @@ import express, { Express, Request, Response } from 'express'
 import hbs from 'hbs'
 
 import { getTranslationsFor } from './lang'
-import { getAllUsers, getCategorisedUserSearches, getTotalUserSearches, getUser } from './api'
+import { processSearchHistoryData } from './logic'
+import { 
+    getAllUsers, getCategorisedUserSearches, 
+    getTotalUserSearches, getUser 
+} from './api'
 
 const server: Express = express()
 // Do not run on 8080 because its the actanalyzer's port
