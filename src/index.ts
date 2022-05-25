@@ -2,7 +2,7 @@ import express, { Express, Request, Response } from 'express'
 import hbs from 'hbs'
 
 import { getTranslationsFor } from './lang'
-import { getAllUsers } from './api'
+import { getAllUsers, getTotalUserSearches, getUser } from './api'
 
 const server: Express = express()
 // Do not run on 8080 because its the actanalyzer's port
@@ -24,6 +24,18 @@ server.get('/users/list', async (request: Request, response: Response) => {
     response.render('users-list.hbs', { 
         translation: getTranslationsFor(browserLanguage),
         users: await getAllUsers()
+    })
+})
+
+server.get('/users/searches/detailed', async (request: Request, response: Response) => {
+    const browserLanguage = request.acceptsLanguages()[1]
+
+    let userId = request.query.id?.toString() ?? "1"
+
+    response.render('users-searches-detailed.hbs', { 
+        translation: getTranslationsFor(browserLanguage),
+        user: await getUser(userId),
+        totalSearches: await getTotalUserSearches(userId)
     })
 })
 
