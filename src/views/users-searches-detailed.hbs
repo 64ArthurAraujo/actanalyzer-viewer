@@ -11,12 +11,15 @@
         <p>{{user.id}}</p>
         <p>{{user.username}}</p>
         <p>{{totalSearches}}</p>
-        {{#each categorisedSearches}}
+        <hr>
+
+        <h3>Percentages</h3>
+        {{#each summarisedData}}
             <div>
-                <p>{{this.id}}</p>
-                <p>{{this.categoryName}}</p>
-                <p>{{this.timesSearched}}</p>
+                <h4>{{this.categoryName}}</h4>
+                <p>{{this.categoryName}} was searched {{this.timesSearched}} times and represents {{this.percentage}}% of this user searches</p>
             </div>
+            <br><br>
         {{/each}}
     </div>
 </body>
