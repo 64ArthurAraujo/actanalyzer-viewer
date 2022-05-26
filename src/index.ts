@@ -36,11 +36,17 @@ server.get('/users/searches/detailed', async (request: Request, response: Respon
 
     let userId = request.query.id?.toString() ?? "1"
 
+    let userInfo = await getUser(userId)
+    let userTotalSearches = await getTotalUserSearches(userId)
+    let userCategorisedSearches = await getCategorisedUserSearches(userId)
+
     response.render('users-searches-detailed.hbs', { 
         translation: getTranslationsFor(browserLanguage),
-        user: await getUser(userId),
-        totalSearches: await getTotalUserSearches(userId),
-        categorisedSearches: await getCategorisedUserSearches(userId)
+        
+        user: userInfo,
+        totalSearches: userTotalSearches,
+
+        summarisedData: processSearchHistoryData(userTotalSearches, userCategorisedSearches)
     })
 })
 
