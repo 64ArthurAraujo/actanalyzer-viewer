@@ -13,11 +13,11 @@
         <p>{{totalSearches}}</p>
         <hr>
 
-        <h3>Percentages</h3>
+        <h3>{{translation.PERCENTAGES}}</h3>
         {{#each summarisedData}}
             <div>
                 <h4>{{this.categoryName}}</h4>
-                <p>{{this.categoryName}} was searched {{this.timesSearched}} times and represents {{this.percentage}}% of this user searches</p>
+                <p>{{this.categoryName}} was seached {{this.timesSearched}} times and represents {{this.percentage}}% of the user's total searches</p>
             </div>
             <br><br>
         {{/each}}
