@@ -50,4 +50,8 @@ server.get('/users/searches/detailed', async (request: Request, response: Respon
     })
 })
 
+server.get('/users/searches/recommend', async (request: Request, response: Response) => {
+    const browserLanguage = request.acceptsLanguages()[1]
+})
+
 server.listen(port, () => console.log(`Running on http://localhost:${port}/`))
